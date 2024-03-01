@@ -12,12 +12,12 @@ export const GLOBAL_PREFIX = "/api/v1";
 
 // Payment and redirects production
 // --- production
-// export const SITE_URL = "https://eurekaairporttransfers.com/";
+export const SITE_URL = "https://modular-checkout-form.netlify.app/";
 // export const SITE_PATH_HOME = "/";
 // export const SITE_PATH_BOOKING = "/Booking.html";
 // export const SITE_PATH_THANK_YOU = "/Thanks-you.html";
 // --- testing ---
-export const SITE_URL = "http://127.0.0.1:5500";
+// export const SITE_URL = "http://127.0.0.1:5500";
 export const SITE_PATH_HOME = "/";
 export const SITE_PATH_BOOKING = "/Booking.html";
 export const SITE_PATH_THANK_YOU = "/Thanks-you.html";
