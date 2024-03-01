@@ -1,0 +1,33 @@
+#stripe-section,
+#paypal-section,
+#cash-section {
+  width: 100%;
+  /* padding-bottom: 1rem; */
+}
+#cash-section p {
+  color: var(--neutral-500);
+}
+#cash-section button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--blue-600);
+  min-height: 50px !important;
+  text-transform: uppercase;
+}
+#cash-section button:hover,
+#cash-section button[disabled="false"]:hover {
+  opacity: 0.8;
+}
+
+#cash-section button svg {
+  width: 24px;
+  height: 24px;
+}
+
+#btn-cash[disabled="true"],
+#btn-cash:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}

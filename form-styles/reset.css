@@ -1,0 +1,61 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: solid 1px transparent;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+ul {
+  margin: 0;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+}
+input {
+  /* cursor: url('../assets/icons/cursor-hover.svg'), auto; */
+  border: transparent;
+  background-color: transparent;
+}
+a {
+  width: fit-content;
+  text-decoration: none;
+  /* cursor: url('../assets/icons/cursor-hover.svg'), auto; */
+}
+textarea {
+  resize: none;
+  border: none;
+  background-color: transparent;
+}
+img {
+  user-select: none;
+}
+address {
+  font-style: normal;
+}
+main {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: 100%;
+  overflow: hidden;
+}
+@media (min-width: 1800px) {
+  main {
+    overflow: hidden;
+  }
+}

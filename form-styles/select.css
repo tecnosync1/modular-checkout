@@ -1,0 +1,266 @@
+.box__form-input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.autocomplete__input {
+  display: block;
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border-radius: 15px;
+}
+.form__input-style {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  font-size: 16px;
+  text-align: left;
+  padding: 6px 30px 6px 16px !important;
+  border-radius: 20px;
+  background: linear-gradient(var(--white), var(--white)) padding-box, var(--primary) border-box;
+  border: 1px solid transparent;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.form__input-style:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.form__input-style::placeholder {
+  color: var(--neutral-400);
+}
+.form__input-style:focus-visible {
+  outline: none;
+  border: 1px solid var(--yellow);
+  transition: border 0.2s;
+}
+.container_inputs[data-type="flight"] .choices-autocomplete__input,
+.container_inputs[data-type="flight"] .form__input-style {
+  max-height: 40px !important;
+  min-height: 40px !important;
+  padding: 8px 16px !important;
+}
+
+.suggestion {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  padding-top: 0.2rem;
+  padding-left: 0.2rem;
+  opacity: 0.8;
+}
+
+/* Custom Choices style */
+.choices-autocomplete__container {
+  position: relative;
+  max-width: 400px !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.choices-autocomplete__container label {
+  font-weight: 500;
+}
+.choices__placeholder {
+  text-align: center;
+  color: var(--neutral-500);
+  opacity: 1 !important;
+}
+.choices__list--single .choices__item {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+}
+.choices.is-disabled {
+  opacity: 0.6 !important;
+}
+.choices__input--cloned {
+  font-size: 16px !important;
+  padding: 16px 12px 0 26px !important;
+  height: 100% !important;
+  border-bottom: 1px solid transparent !important;
+}
+.choices__item--disabled {
+  opacity: 1 !important;
+  font-weight: 500 !important;
+}
+.choices-autocomplete-label {
+  margin-bottom: 8px;
+}
+.choices-autocomplete__input {
+  display: block;
+  width: 100%;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  text-align: center;
+  padding: 10px 20px !important;
+  border-radius: 16px;
+  background-color: var(--white);
+  border: 1px solid var(--neutral-400) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.choices-autocomplete__input:focus {
+  outline: none !important;
+}
+.choices-autocomplete__input:focus-visible {
+  outline: none !important;
+  border: 2px solid black !important;
+}
+
+.choices-autocomplete__results {
+  border-radius: 16px !important;
+  border: 1px solid transparent !important;
+  background-color: white !important;
+  box-shadow: 0 0 1rem 0 var(--primary-200) !important;
+}
+.choices-autocomplete__results .choices__list {
+  padding: 10px;
+}
+.choices__list--dropdown .choices__list,
+.choices__list[aria-expanded] .choices__list {
+  max-height: 260px !important;
+}
+
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+  z-index: 1999 !important;
+}
+
+.choices[data-type*="select-one"]::after {
+  content: url("../assets/arrow-down.svg") !important;
+  height: 18px !important;
+  width: 18px !important;
+  border-style: none !important;
+  border-color: transparent;
+  border-width: 0 !important;
+  position: absolute;
+  right: 1rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  transition: transform 0.2s;
+  margin-top: 0 !important;
+  pointer-events: none !important;
+  color: var(--neutral-500);
+}
+.choices[data-type*="select-one"].is-open::after {
+  border-color: transparent;
+  margin-top: 0;
+  pointer-events: none !important;
+  transform: translateY(-50%) rotate(-180deg) !important;
+}
+
+.choices-autocomplete-item {
+  padding: 10px 15px !important;
+  font-size: 14px !important;
+  border-radius: 10px !important;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word !important;
+  color: var(--neutral-500) !important;
+  transition: all 0.2s !important;
+}
+.choices-autocomplete-item[aria-selected="true"],
+.choices-autocomplete-item:hover {
+  background-color: var(--bg-yellow) !important;
+  color: var(--yellow) !important;
+}
+.choices-autocomplete-item[aria-disabled="true"] {
+  background-color: var(--white) !important;
+  color: var(--neutral-600) !important;
+  margin-top: 4px !important;
+}
+.choices.is-open[aria-expanded="true"] .choices-autocomplete__input {
+  border: 1px solid var(--yellow) !important;
+  transition: border 0.2s;
+}
+.autocomplete__input:focus {
+  border-color: var(--neutral-900);
+  outline: none;
+}
+
+.autocomplete__dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  font-size: 20px;
+  transition: transform 0.2s linear;
+}
+
+.choices.is-open[aria-expanded="true"] .choices[data-type*="select-one"]::after {
+  transform: rotate(-180deg) !important;
+}
+
+.autocomplete__results {
+  visibility: hidden;
+  position: absolute;
+  max-height: 250px;
+  width: 100%;
+  overflow-y: auto;
+  border-radius: 15px;
+  padding: 4px;
+}
+
+.autocomplete-item {
+  padding: 10px 15px !important;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.autocomplete-result-list {
+  border-radius: 15px;
+  padding: 4px;
+  max-height: 250px;
+  overflow-x: auto;
+}
+
+.autocomplete-result {
+  padding: 10px 15px;
+}
+.autocomplete-result[aria-selected="true"] {
+  border-radius: 10px;
+}
+
+.choices-autocomplete__input-amount {
+  display: block;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  text-align: center;
+  padding: 6px 30px 6px 16px !important;
+  border-radius: 20px;
+  background: linear-gradient(var(--primary-50), var(--primary-50)) padding-box, var(--stroke-gradient-total) border-box;
+  border: 1px solid transparent;
+}
+
+/* Responsive */
+@media (min-width: 400px) {
+  .choices-autocomplete-item {
+    font-size: 16px !important;
+  }
+}
+@media (min-width: 768px) {
+  .choices__placeholder {
+    text-align: left;
+  }
+}
+@media (min-width: 1020) {
+  .choices-autocomplete__input {
+    max-width: 230px !important;
+  }
+  .form__input-style {
+    max-width: 220px;
+  }
+}

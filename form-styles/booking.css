@@ -1,0 +1,210 @@
+.container_hero_booking {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  align-self: stretch;
+}
+.container_booking {
+  display: flex;
+  padding: 0rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  align-self: stretch;
+  border-radius: var(--radius-big);
+}
+.content_book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+.container_option_cards {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+.card_option {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  min-width: 255px;
+  border-radius: var(--radius);
+  border: 2px solid var(--primary-100, #c5932f);
+  background: var(--fog, rgba(255, 255, 255, 0.7));
+}
+.card_option_selected {
+  border: 2px solid var(--primary, #c5932f);
+  background-color: var(--primary-100);
+}
+.container_wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+  align-items: flex-start;
+  gap: 30px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+.check_position_card {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.card_option_texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  align-self: stretch;
+}
+.card_option_texts > p {
+  text-transform: uppercase;
+}
+.banner_total {
+  display: flex;
+  padding: 1.8rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-self: stretch;
+
+  background-color: var(--primary-50);
+  border-radius: var(--radius);
+}
+.little_text_billing {
+  color: var(--light-dark, #28282f);
+  font-family: var(--font-sauce);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.text_billing {
+  font-family: var(--font-sauce);
+  font-weight: 300;
+  font-size: 1.2rem;
+  width: max-content;
+}
+.container_terms {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+  justify-content: space-between;
+}
+/******************Input Phone**********************/
+.iti {
+  width: 100% !important;
+}
+/* mobile */
+.iti-mobile .iti--container {
+  inset: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iti-mobile .iti__country-list {
+  max-width: 320px !important;
+  max-height: 60% !important;
+  border-radius: 15px !important;
+  background-color: white;
+  box-shadow: none;
+  overflow-x: hidden;
+}
+/* desktop */
+.iti .iti__flag-container .iti__selected-flag {
+  background-color: rgba(229, 229, 229, 0.5) !important;
+  border-radius: 5px;
+}
+.iti__selected-flag {
+  height: 90% !important;
+  padding: 5px !important;
+}
+.iti__country-list {
+  max-width: 260px !important;
+  max-height: 170px;
+  border-radius: 10px;
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow-x: hidden;
+}
+.iti .iti__flag-container .iti__country {
+  padding: 10px 15px !important;
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+}
+.iti .iti__flag-container .iti__country-list .iti__country-name {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+}
+.intl-tel-input .selected-flag {
+  z-index: 4;
+}
+.intl-tel-input .country-list {
+  z-index: 5;
+}
+
+/******************breakpoints**********************/
+/* xs */
+@media (min-width: 600px) {
+  .terms {
+    width: max-content;
+    font-size: 14px;
+  }
+}
+/* sm */
+@media (min-width: 640px) {
+  .container_booking {
+    gap: 4rem;
+    padding: 1rem;
+  }
+  .container_wrap {
+    flex-direction: row;
+  }
+  .text_billing {
+    font-size: 1.25rem;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+  .card_option {
+    border-radius: var(--radius-medium);
+  }
+  .check_position_card {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+}
+/* lg */
+@media (min-width: 1024px) {
+  .container_booking {
+    padding: 50px 80px 120px 80px;
+    background: linear-gradient(white, white) padding-box, var(--stroke-gradient) border-box;
+    border: 2px solid transparent;
+  }
+  .iti__flag-container .iti__country-list {
+    max-width: 360px !important;
+    max-height: 250px !important;
+  }
+  .iti__flag-container .iti__country {
+    font-size: 16px;
+  }
+}
+/* xl */
+@media (min-width: 1280px) {
+}
+/* 2xl	 */
+@media (min-width: 1400px) {
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google ReCaptcha -->
+    <script
+      src="https://www.google.com/recaptcha/api.js?render=6LebVlQpAAAAAO5RKjSnBRso4q-mp04v9t7KAdPN"
+      async
+      defer
+    ></script>
+
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./form-styles/style.css" />
+    <link rel="stylesheet" href="./form-styles/inputs.css" />
+    <link rel="stylesheet" href="./form-styles/tab.css" />
+    <link rel="stylesheet" href="./form-styles/travel.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phone -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css" />
+
+    <title>Travel Agent</title>
+  </head>
+  <body style="width: 100%">
+    <!-- content -->
+    <main>
+      <section class="content_forms">
+        <div role="tablist" aria-orientation="horizontal" tabindex="0" class="box__tab">
+          <button
+            role="tab"
+            class="btn__tab active"
+            data-orientation="horizontal"
+            data-order="0"
+            tabindex="0"
+            aria-selected="true"
+          >
+            Agent/Agency
+          </button>
+          <button
+            role="tab"
+            class="btn__tab inactive"
+            data-orientation="horizontal"
+            data-order="1"
+            tabindex="-1"
+            aria-selected="false"
+          >
+            Commission Agent
+          </button>
+        </div>
+
+        <div class="tab__content" tabindex="0" data-state="active" data-order="0" role="tabpanel">
+          <form
+            id="form-agency"
+            novalidate
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            class="box__form-travel"
+          >
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agency-name">
+                <input
+                  type="text"
+                  id="agency-name"
+                  name="agency-name"
+                  placeholder="Your agent or company"
+                  autocomplete="off"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agency-name"
+                ></div>
+                <span class="label input-required">Agent/Company name</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="manager-fullName">
+                <input
+                  type="text"
+                  id="manager-fullName"
+                  name="manager-fullName"
+                  placeholder="Your manager name"
+                  autocomplete="off"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="manager-fullName"
+                ></div>
+                <span class="label input-required">Manager Name</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agency-email">
+                <input
+                  type="text"
+                  id="agency-email"
+                  name="agency-email"
+                  placeholder="Your agency mail"
+                  autocomplete="off"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agency-email"
+                ></div>
+                <span class="label input-required">Agent/Company E-mail</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agency-phone" data-reference="agency-phone">
+                <input
+                  type="text"
+                  id="agency-phone"
+                  name="agency-phone"
+                  placeholder="Your manager phone"
+                  autocomplete="off"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agency-phone"
+                ></div>
+                <span class="label input-required">Manager Phone</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agency-url">
+                <input type="text" id="agency-url" name="agency-url" placeholder="Your agency url" autocomplete="off" />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agency-url"
+                ></div>
+                <span class="label input-required">Agency URL</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agency-code">
+                <input
+                  type="number"
+                  id="agency-code"
+                  name="agency-code"
+                  placeholder="Your code number"
+                  autocomplete="off"
+                  pattern="\d+"
+                  placeholder="000"
+                  min="0"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agency-code"
+                ></div>
+                <span class="label input-required">IATA/STANUMBER/OTHER</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex flex_end">
+              <button
+                type="submit"
+                id="btn-agency"
+                class="button_highlight"
+                style="max-width: fit-content; margin: 0 !important"
+              >
+                Send requirement
+              </button>
+            </div>
+
+            <div class="relative">
+              <div
+                class="error-message text_center full_width"
+                style="display: none"
+                role="alert"
+                tabindex="-1"
+                data-type="travel-agency"
+              ></div>
+              <div
+                class="success-message text_center full_width"
+                style="display: none"
+                role="alert"
+                tabindex="-1"
+                data-type="travel-agency"
+              ></div>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab__content" tabindex="-1" data-state="inactive" data-order="1" role="tabpanel">
+          <form
+            id="form-agent"
+            novalidate
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            class="box__form-travel"
+          >
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agent-fullName">
+                <input
+                  type="text"
+                  id="agent-fullName"
+                  name="agent-fullName"
+                  placeholder="Your full name"
+                  autocomplete="off"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agent-fullName"
+                ></div>
+                <span class="label input-required">Full Name</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agent-email">
+                <input type="text" id="agent-email" name="agent-email" placeholder="Your e-mail" autocomplete="off" />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agent-email"
+                ></div>
+                <span class="label input-required">E-mail</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex_responsive_big full_width">
+              <label class="input_text_container" for="agent-phone">
+                <input type="text" id="agent-phone" name="agent-phone" placeholder="Your phone" autocomplete="off" />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="agent-phone"
+                ></div>
+                <span class="label input-required">Phone</span>
+                <div class="underline"></div>
+              </label>
+            </div>
+
+            <div class="flex flex_end">
+              <button
+                type="submit"
+                id="btn-agent"
+                class="button_highlight"
+                style="max-width: fit-content; margin: 0 !important"
+              >
+                Send requirement
+              </button>
+            </div>
+
+            <div class="relative">
+              <div
+                class="error-message text_center full_width"
+                style="display: none"
+                role="alert"
+                tabindex="-1"
+                data-type="travel-agent"
+              ></div>
+              <div
+                class="success-message text_center full_width"
+                style="display: none"
+                role="alert"
+                tabindex="-1"
+                data-type="travel-agent"
+              >
+                Your registration was sent successfully ✓
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- js -->
+    <script src="./scripts/tabs.script.js"></script>
+    <script type="module" src="./scripts/travel.script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+.full_width {
+  width: 100%;
+  max-width: 2000px;
+}
+.content_thanks {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  align-self: stretch;
+}
+.adv {
+  font-size: 1.5rem;
+}
+.price {
+  font-weight: 500;
+}
+.container_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+.button_cards {
+  display: flex;
+  padding: 12px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: var(--radius);
+  background-color: var(--dark);
+  color: var(--primary-50);
+}
+.button_paypal {
+  display: flex;
+  padding: 12px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: var(--radius);
+  background-color: #ffc43a;
+}
+.paypal_logo {
+  width: 90px;
+  height: 24px;
+}
+.title__customer-info {
+  padding-top: 1rem;
+}
+.little_text_billing {
+  color: var(--light-dark, #28282f);
+  font-family: var(--font-sauce);
+  font-size: 1rem;
+  font-weight: 300;
+}
+.text_billing {
+  font-family: var(--font-sauce);
+  font-weight: 400;
+  font-size: large;
+  text-wrap: wrap;
+}
+.box__title-description {
+  width: 100%;
+  text-align: center;
+}
+/******************Booking Details**********************/
+.box__content[data-id="content-description"] {
+  width: 100% !important;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 0;
+}
+.box__summary {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.box__card-payment {
+  max-width: 22.5rem;
+  width: 100%;
+  padding: 2rem 1rem;
+  border: 1px solid black;
+  border-radius: 1.25rem;
+}
+.box__payment-description {
+  max-width: 370px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+.box__payment-description {
+  width: 100%;
+  text-align: left;
+}
+.box__payment-description h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+}
+.box__payment-description p {
+  font-size: 14px;
+  text-align: center;
+}
+.box__success-description {
+  max-width: 335px;
+  width: 100%;
+}
+.box__success-description h4 {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.box__success-description span {
+  font-weight: 600;
+}
+.box__success-description p {
+  font-size: 14px;
+  text-align: left;
+}
+.text__success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+.text__success span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  color: green;
+  padding: 0.5rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 1px solid green;
+  background-color: rgb(199, 224, 199);
+}
+.box__successful[data-type="card-successful"] {
+  display: none;
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  padding: 1rem;
+}
+.box__successful[data-type="card-successful"].active {
+  display: block;
+}
+
+/******************breakpoints**********************/
+/* xs */
+@media (min-width: 500px) {
+  .container_buttons {
+    flex-direction: row;
+  }
+  .box__content[data-id="content-description"] {
+    width: 80% !important;
+  }
+}
+/* sm */
+@media (min-width: 640px) {
+  .content_thanks {
+    align-items: flex-start;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+}
+/* lg */
+@media (min-width: 1024px) {
+}
+/* xl */
+@media (min-width: 1280px) {
+}
+/* 2xl	 */
+@media (min-width: 1400px) {
+}

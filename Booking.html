@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="https://eurekaairporttransfers.com/assets/img/logo/favicon.png" />
+
+    <!-- Cookie-JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.4/js.cookie.min.js"
+      integrity="sha512-Nonc2AqL1+VEN+97F3n4YxucBOAL5BgqNwEVc2uUjdKOWAmzwj5ChdJQvN2KldAxkCxE4OenuJ/RL18bWxGGzA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/?ver=3.0"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CDN Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/open-sauce-one" rel="stylesheet" />
+
+    <!-- Choices -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css" />
+
+    <!-- Calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Phone -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css" />
+
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Resources -->
+    <link rel="stylesheet" href="./form-styles/reset.css" />
+    <link rel="stylesheet" href="./form-styles/inputs.css" />
+    <link rel="stylesheet" href="./form-styles/select.css" />
+    <link rel="stylesheet" href="./form-styles/booking.css" />
+    <link rel="stylesheet" href="./form-styles/stripe-form.css" />
+    <link rel="stylesheet" href="./form-styles/style.css" />
+
+    <title>Booking |</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="container_hero_booking">
+          <a href="/">
+            <img
+              src="https://eurekaairporttransfers.com/assets/img/logo/logo.png"
+              alt="Eureka Airport Transfers"
+              height="66"
+            />
+          </a>
+          <hi class="title">Book your <span class="color_primary">adventure</span></hi>
+          <div class="box__redirect text_left">
+            <a href="/">← Go to Home</a>
+          </div>
+        </div>
+
+        <form
+          novalidate
+          autocomplete="off"
+          spellcheck="false"
+          autocapitalize="off"
+          class="container_booking"
+          id="booking-form"
+        >
+          <div class="content_book">
+            <h3 class="subtitle_terms">Your Airport Transfer Choice</h3>
+            <div class="container_option_cards">
+              <label class="card_option" for="transfer_service_luxury">
+                <img id="book-item-image" src="" alt="luxury transfer" width="150px" />
+                <div class="check_position_card">
+                  <input
+                    type="radio"
+                    name="type_transfer_service"
+                    id="transfer_service_luxury"
+                    class="checkbox"
+                    value="---"
+                    checked
+                  />
+                </div>
+                <div class="card_option_texts">
+                  <p id="book-item-transfer">---</p>
+                  <span class="color_primary">$<span id="book-item-price">---</span> USD</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="content_book">
+            <h3 class="subtitle_terms">Your billing details</h3>
+            <div class="container_wrap">
+              <div class="container_set">
+                <p class="little_text_billing">Type Transfer</p>
+                <p id="book-item-type" class="text_billing">---</p>
+              </div>
+
+              <div class="container_set">
+                <p class="little_text_billing">From</p>
+                <p id="book-origin" class="text_billing">---</p>
+              </div>
+
+              <div class="container_set">
+                <p class="little_text_billing">To</p>
+                <p id="book-destination" class="text_billing">---</p>
+              </div>
+
+              <div class="container_set">
+                <p class="little_text_billing">Amount of Pax</p>
+                <p id="book-amount" class="text_billing">---</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content_book">
+            <h3 class="subtitle_terms" id="subtitle-terms">Share your flight info</h3>
+            <div class="container_inputs" data-type="flight">
+              <div class="container_form_field">
+                <p class="input-required">Arrival date</p>
+                <input
+                  type="text"
+                  id="arrival-date"
+                  class="form__input-style"
+                  placeholder="Select your date"
+                  data-time=""
+                  autocomplete="off"
+                  value=""
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="arrival-date"
+                ></div>
+              </div>
+
+              <div class="container_form_field">
+                <p class="input-required">Arrival time</p>
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="arrival-time"
+                ></div>
+                <input
+                  type="time"
+                  id="arrival-time"
+                  placeholder="Select your time"
+                  autocomplete="off"
+                  class="form__input-style"
+                />
+              </div>
+
+              <div class="container_form_field">
+                <p class="input-required" aria-describedby="airport">Airline</p>
+                <div class="error-message" style="display: none" role="alert" tabindex="-1" data-type="airport"></div>
+                <select id="airport">
+                  <option placeholder>Select your airline</option>
+                </select>
+              </div>
+
+              <label class="input_text_container" for="flight-number" data-type="number">
+                <input
+                  type="number"
+                  id="flight-number"
+                  name="flight"
+                  autocomplete="off"
+                  aria-autocomplete="none"
+                  pattern="\d+"
+                  placeholder="000"
+                  min="0"
+                />
+                <span class="label input-required">Flight number</span>
+                <div class="underline"></div>
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="flight-number"
+                ></div>
+              </label>
+
+              <div class="container_form_field" data-book-type="round-trip">
+                <p class="input-required" aria-describedby="return-date">Return date</p>
+                <input
+                  type="text"
+                  id="return-date"
+                  placeholder="0000-00-00"
+                  autocomplete="off"
+                  data-time
+                  value=""
+                  class="form__input-style"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="return-date"
+                ></div>
+              </div>
+
+              <div class="container_form_field" data-book-type="round-trip">
+                <p class="input-required" aria-describedby="return-time">Return time</p>
+                <input
+                  type="time"
+                  id="return-time"
+                  placeholder="Select your time"
+                  autocomplete="off"
+                  class="form__input-style"
+                />
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="return-time"
+                ></div>
+              </div>
+
+              <div class="container_form_field" data-book-type="round-trip">
+                <p class="input-required" aria-describedby="airport-return">Airline return</p>
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="airport-return"
+                ></div>
+                <select id="airport-return">
+                  <option placeholder>Select your airline</option>
+                </select>
+              </div>
+
+              <label
+                class="input_text_container"
+                for="flight-number-return"
+                data-type="number"
+                data-book-type="round-trip"
+                id="flight-return"
+              >
+                <input
+                  type="number"
+                  id="flight-number-return"
+                  name="flight"
+                  autocomplete="off"
+                  aria-autocomplete="none"
+                  pattern="\d+"
+                  placeholder="000"
+                  min="0"
+                />
+                <span class="label input-required">Flight number return</span>
+                <div class="underline"></div>
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="flight-number-return"
+                ></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="content_book">
+            <h3 class="subtitle_terms">Extra information</h3>
+            <div class="container_inputs">
+              <label class="input_text_container" for="approx-luggage">
+                <input type="number" id="approx-luggage" name="approx-luggage" placeholder="0" min="0" max="20" />
+                <span class="label">Amount of Luggage</span>
+                <div class="underline"></div>
+                <div
+                  class="error-message"
+                  style="display: none"
+                  role="alert"
+                  tabindex="-1"
+                  data-type="approx-luggage"
+                ></div>
+              </label>
+
+              <label class="input_text_container" for="remark">
+                <input type="text" id="remark" name="remark" placeholder="Notes and special instructions" />
+                <span class="label">Remarks</span>
+                <div class="underline"></div>
+                <div class="error-message" style="display: none" role="alert" tabindex="-1" data-type="remark"></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="banner_total">
+            <h2 class="subtitle">Total</h2>
+            <div class="container_inputs">
+              <div class="container_set">
+                <p class="little_text_billing">Price</p>
+                <p class="text_billing">$<span id="price">---</span> USD</p>
+              </div>
+
+              <label class="input_text_container" for="full-name">
+                <input type="text" id="full-name" name="name" autocomplete="off" placeholder="Your full-name" />
+                <span class="label input-required">Full name</span>
+                <div class="underline"></div>
+                <div class="error-message" style="display: none" role="alert" tabindex="-1" data-type="full-name"></div>
+              </label>
+            </div>
+
+            <div class="container_inputs">
+              <div class="input_text_container">
+                <input type="email" id="email" name="email" autocomplete="off" placeholder="transfer@example.com" />
+                <label for="email" class="label input-required">E-mail</label>
+                <div class="underline"></div>
+                <div class="error-message" style="display: none" role="alert" tabindex="-1" data-type="email"></div>
+              </div>
+
+              <div class="input_text_container" data-type="phone">
+                <label for="phone" class="label input-required">Phone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="off" tabindex="0" />
+                <div class="error-message" style="display: none" role="alert" tabindex="-1" data-type="phone"></div>
+              </div>
+            </div>
+
+            <div class="content_book">
+              <div class="container_inputs" style="gap: 2.5rem">
+                <div class="flex" style="position: relative">
+                  <input type="checkbox" name="terms" id="terms" class="check" />
+                  <label for="terms" class="terms">
+                    I have read and agree to the
+                    <a
+                      href="https://fantasystravel.com/terminoycondiciones/"
+                      class="link"
+                      target="_blank"
+                      rel="noopener"
+                      >Terms and Conditions and Privacy</a
+                    ></label
+                  >
+                  <div class="error-message" style="display: none" role="alert" tabindex="-1" data-type="terms"></div>
+                </div>
+                <div class="flex flex_end full_width">
+                  <button type="submit" class="button_highlight" id="book-submit">
+                    <span>Book now</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M4 12H20M20 12L16 8M20 12L16 16"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div class="modal modal-exit" data-modal="true" data-open="false" role="alert">
+      <div class="box__modal" role="button">
+        <div class="modal_content">
+          <h4 data-type="title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40" fill="none">
+              <path
+                d="M31.6733 33.5012H8.32625C5.76991 33.5012 4.17202 30.7345 5.44936 28.5197L17.1965 8.1613C18.4787 5.93847 21.6892 5.94657 22.96 8.17587L34.5598 28.5343C35.821 30.749 34.2215 33.5012 31.6733 33.5012Z"
+                stroke="#c5932f"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M20.0195 22.1378V17.1191M20.0164 27.2133V27.1323"
+                stroke="#c5932f"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            Warning
+          </h4>
+          <p data-type="message">
+            Your reservation time has expired due to more than 10 minutes of inactivity. <br />
+            You will be redirected to the home page.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/check-captcha.script.js"></script>
+    <script type="module" src="./scripts/modal.script.js"></script>
+    <script type="module" src="./scripts/booking.script.js"></script>
+    <script src="./scripts/flatpickr.script.js"></script>
+  </body>
+</html>

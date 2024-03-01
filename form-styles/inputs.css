@@ -1,0 +1,422 @@
+.container_inputs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.container_inputs[data-type="flight"] {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 1.8rem;
+}
+.inputs_contact {
+  display: flex;
+  max-width: 615px;
+  padding: 2px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3rem;
+  align-self: stretch;
+}
+.container_form_field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+}
+.input_text_container[data-book-type="round-trip"],
+.container_form_field[data-book-type="round-trip"] {
+  display: none;
+}
+.container_form_field[data-title="amount"] {
+  width: 190px;
+}
+.flex_checkbox_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  min-height: 40px;
+}
+.gap_checkbox_set {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+}
+input:-webkit-autofill {
+  background-color: var(--primary);
+}
+.checkbox {
+  height: 1.5rem;
+  min-width: 1.5rem;
+  display: inline-block;
+  appearance: none;
+  position: relative;
+  border-radius: 50%;
+  padding: 10px;
+  border: solid 1.2px var(--primary);
+  cursor: pointer;
+  overflow: hidden;
+  transition: 300ms ease;
+}
+.checkbox:checked {
+  box-shadow: inset 0px 0px 0px 4px var(--primary-50);
+  background-color: var(--yellow);
+  border: solid 1.2px var(--yellow);
+}
+.flex_responsive_big {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.flex_responsive_big[data-type="submit"] {
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.flex_responsive_big[data-type="submit"] .flex_end[data-btn="submit"] {
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-input {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  font-size: 16px;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  text-align: left;
+  padding: 6px 30px 6px 16px !important;
+  border-radius: 20px;
+  background: linear-gradient(var(--primary-50), var(--primary-50)) padding-box, var(--neutral-900) border-box;
+  border: 1px solid transparent;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.custom-input::placeholder {
+  color: var(--neutral-400);
+  font-size: 16px;
+}
+
+/******************input text**********************/
+.input_text_container {
+  position: relative;
+  padding: 0rem 1rem;
+  width: -webkit-fill-available;
+  margin-top: 1.3rem;
+  height: fit-content;
+}
+
+.input_text_container[data-type="phone"] {
+  padding-left: 0;
+}
+.input_text_container[data-type="phone"] .label {
+  top: -20px;
+  font-size: 14px;
+}
+.input_text_container input {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+.input_text_container input::placeholder {
+  color: var(--light-dark-footer);
+  opacity: 0.6;
+}
+
+.input_text_container .label {
+  font-size: 0.8rem;
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  padding: 0rem 1rem;
+}
+
+.input_text_container input:focus ~ .label {
+  top: -20px;
+  font-size: 16px;
+}
+.input_text_container input:focus::placeholder {
+  opacity: 1;
+}
+
+/* .input_text_container  */
+.input_text_container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  /* right: -10%; */
+  background-color: var(--primary);
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* .input_text_container input:valid ~ .underline { */
+.input_text_container input:focus ~ .underline {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* alert message */
+.success-message,
+.error-message {
+  position: absolute;
+  bottom: -1.2rem;
+  left: 1.2rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--error-text);
+}
+.success-message {
+  color: #16a085 !important;
+}
+/******************input date & time picker**********************/
+
+.vanilla_calendar {
+  position: relative;
+  display: flex;
+  height: -webkit-max-content;
+  height: max-content;
+  max-width: 100%;
+  flex-direction: column;
+  background: white;
+  border: 1px solid var(--primary);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  opacity: 1;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.vanilla_calendar_arrow {
+  pointer-events: auto;
+  position: relative;
+  display: block;
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  border-width: 0px;
+  background-color: transparent;
+}
+.vanilla_calendar_arrow::before {
+  content: url("../assets/icons/arrow-down.svg");
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  transform: rotate(90deg);
+  color: var(--neutral-400);
+}
+.vanilla_calendar_arrow_prev {
+  -webkit-transform: rotateZ(90deg);
+  transform: rotate(90deg);
+}
+.vanilla_calendar_arrow_next {
+  -webkit-transform: rotateZ(90deg);
+  transform: rotate(-90deg);
+}
+.vanilla_calendar_time_range input {
+  position: relative;
+  margin-bottom: 5px;
+  height: 1.25rem;
+  width: 100%;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: var(--primary-100);
+  -webkit-appearance: none;
+  appearance: none;
+  outline-width: 0px;
+}
+
+/* Para navegadores basados en WebKit (Chrome, Safari) */
+.vanilla_calendar_time_range input[type="range"]::-webkit-slider-thumb {
+  background-color: var(--primary);
+}
+
+/* Para navegadores basados en Mozilla (Firefox) */
+.vanilla_calendar_time_range input[type="range"]::-moz-range-thumb {
+  background-color: var(--primary);
+}
+
+/* Para navegadores basados en Microsoft (Edge) */
+.vanilla_calendar_time_range input[type="range"]::-ms-thumb {
+  background-color: var(--primary);
+}
+.drop_date {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--primary-300);
+  cursor: pointer;
+  /* max-width: 98%; */
+  caret-color: transparent;
+}
+.drop_date::placeholder {
+  color: var(--primary-300);
+}
+/******************check input type checkbox**********************/
+.check {
+  height: 1.5rem;
+  min-width: 1.5rem;
+  display: inline-block;
+  appearance: none;
+  position: relative;
+  border-radius: 10px;
+  padding: 10px;
+  border: solid 1px var(--primary);
+  cursor: pointer;
+  overflow: hidden;
+  transition: 300ms ease;
+}
+.check::before {
+  content: url("../assets/check.svg");
+  display: block;
+  height: 18px;
+  width: 18px;
+  opacity: 0;
+  position: absolute;
+  bottom: 3px;
+  left: 5px;
+  transition: 0.4s ease;
+}
+.check:checked::before {
+  opacity: 1;
+}
+.check:checked {
+  background-color: var(--dark-footer) !important;
+  border: 1px solid var(--dark-footer) !important;
+}
+.container_inputs[data-type="submit"] > .container_set {
+  width: max-content;
+}
+.container_inputs[data-type="submit"] {
+  max-width: max-content;
+  flex-direction: column;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/******************breakpoints**********************/
+@media (min-width: 400px) {
+  .flex_checkbox_container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .container_inputs[data-type="submit"] {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .vanilla_calendar {
+    min-width: 275px;
+  }
+}
+/* sm */
+@media (min-width: 586px) {
+  .flex_responsive_big[data-type="submit"] {
+    gap: 2rem;
+  }
+  .flex_responsive_big[data-type="submit"] .flex_end[data-btn="submit"] {
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+  }
+}
+/* sm */
+@media (min-width: 640px) {
+  .inputs_contact {
+    min-width: 400px;
+  }
+  .container_inputs[data-type="submit"] {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+}
+
+@media (min-width: 968px) {
+}
+@media (min-width: 1020px) {
+  .custom-input {
+    max-width: 220px;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .container_inputs {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: end;
+  }
+  .container_inputs[data-type="flight"] {
+    justify-content: flex-start;
+    column-gap: 3.2rem;
+  }
+
+  .container_inputs[data-type="submit"] {
+    justify-content: center;
+  }
+  .container_form_field {
+    max-width: 470px;
+  }
+  #booking-form .container_form_field {
+    max-width: 220px;
+  }
+  #booking-form .input_text_container[data-type="number"] {
+    max-width: 220px;
+  }
+  .flex_responsive_big {
+    flex-direction: row;
+  }
+  .inputs_contact {
+    min-width: 600px;
+  }
+}
+
+@media (min-width: 1188px) {
+  .flex_responsive_big[data-type="submit"] {
+    flex-wrap: nowrap;
+    gap: auto;
+  }
+  .container_inputs[data-type="flight"] {
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    justify-content: space-between;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+}
+/* 2xl	 */
+@media (min-width: 1400px) {
+}

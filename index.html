@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="https://eurekaairporttransfers.com/assets/img/logo/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CDN Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/open-sauce-one" rel="stylesheet" />
+
+    <!-- -Cookie-JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.4/js.cookie.min.js"
+      integrity="sha512-Nonc2AqL1+VEN+97F3n4YxucBOAL5BgqNwEVc2uUjdKOWAmzwj5ChdJQvN2KldAxkCxE4OenuJ/RL18bWxGGzA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Choices -->
+    <link rel="stylesheet" href="./form-styles/choices.css" />
+    <script src="./scripts/choices.js"></script>
+
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/?ver=3.0"></script>
+
+    <!-- Phone -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script type="module" src="./scripts/search.script.js"></script>
+
+    <!-- Resources -->
+    <link rel="stylesheet" href="./form-styles/reset.css" />
+    <link rel="stylesheet" href="./form-styles/inputs.css" />
+    <link rel="stylesheet" href="./form-styles/select.css" />
+    <link rel="stylesheet" href="./form-styles/style.css" />
+
+    <title>Testing checkout</title>
+  </head>
+  <body style="width: 100%; height: 100%; background-color: var(--white)">
+    <h1 style="text-align: center; font-weight: bold; text-transform: uppercase; margin: 1rem auto; color: black">
+      <a href="/" style="color: inherit">Module checkout</a>
+    </h1>
+
+    <div style="padding-bottom: 5rem">
+      <section translate="no" class="container_form_home">
+        <div class="logo_form">
+          <img
+            src="https://eurekaairporttransfers.com/assets/img/logo/logo.png"
+            alt="Brand Eureka Airport Transfers"
+            height="40"
+          />
+        </div>
+        <form
+          translate="no"
+          novalidate
+          autocomplete="off"
+          spellcheck="false"
+          autocapitalize="off"
+          class="form_content_home"
+          style="width: 100%"
+          id="form-transfer"
+          data-slides="form"
+        >
+          <div class="container_center">
+            <h2 class="subtitle text_center">
+              Find your best
+              <span class="bold_subtitle">Airport Transfers</span> and <span class="bold_subtitle">Tours</span> services
+            </h2>
+          </div>
+
+          <div class="container_inputs">
+            <div class="container_form_field" tabindex="-1">
+              <p class="bold input-required" aria-describedby="choices-origin" aria-label="from" tabindex="-1">From</p>
+              <div
+                class="error-message"
+                style="display: none"
+                role="alert"
+                tabindex="-1"
+                data-type="choices-origin"
+              ></div>
+              <select id="choices-origin" role="none">
+                <option placeholder>Select where your from</option>
+              </select>
+            </div>
+
+            <div class="container_form_field" tabindex="-1">
+              <p class="bold input-required" aria-describedby="choices-destination" aria-label="to">To</p>
+              <div
+                class="error-message"
+                style="display: none"
+                role="alert"
+                tabindex="-1"
+                data-type="choices-destination"
+              ></div>
+              <select id="choices-destination" disabled>
+                <option placeholder>Select where your go</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex_responsive_big" data-type="submit">
+            <div class="container_inputs" data-type="submit">
+              <div class="container_set" tabindex="-1">
+                <span class="bold input-required">Type transfer</span>
+                <div class="flex_checkbox_container">
+                  <label for="one-way" class="gap_checkbox_set">
+                    <input
+                      type="radio"
+                      name="type-transfer"
+                      id="one-way"
+                      data-title="one-way"
+                      value="one-way"
+                      class="checkbox"
+                      checked
+                    />
+                    One way
+                  </label>
+
+                  <label for="round-trip" class="gap_checkbox_set">
+                    <input
+                      type="radio"
+                      name="type-transfer"
+                      id="round-trip"
+                      data-title="round-trip"
+                      value="round-trip"
+                      class="checkbox"
+                    />
+                    Round trip
+                  </label>
+                </div>
+              </div>
+
+              <div class="container_form_field" data-title="amount" tabindex="-1">
+                <p class="bold input-required" aria-describedby="choices-amount-pax">Amount of Pax</p>
+                <select id="choices-amount-pax" data-title="amount" aria-label="amount-pax">
+                  <option placeholder>Select a number</option>
+                </select>
+              </div>
+
+              <div class="container_form_field" tabindex="-1" style="max-width: max-content">
+                <label for="travel-agent" class="bold">Travel Agent</label>
+                <div style="position: relative">
+                  <input
+                    id="travel-agent"
+                    type="text"
+                    autocomplete="off"
+                    class="form__input-style"
+                    placeholder="Your agent code"
+                    disabled
+                  />
+                  <p class="suggestion" tabindex="-1" data-type="travel-agent">If not a Travel Agent leave blank.</p>
+                  <div
+                    class="error-message"
+                    style="display: none"
+                    role="alert"
+                    tabindex="-1"
+                    data-type="travel-agent"
+                  ></div>
+                  <div
+                    class="success-message"
+                    style="display: none"
+                    role="alert"
+                    tabindex="-1"
+                    data-type="travel-agent"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <button id="search-btn" type="submit" class="button_highlight" style="margin-top: 1rem">
+              <span>Search</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Render items -->
+      <section id="section__items" class="container section__items" style="display: none">
+        <div class="box__service-subtitle">
+          <img
+            src="https://eurekaairporttransfers.com/assets/img/logo/logo.png"
+            alt="Eureka Airport Transfers"
+            title="Eureka Airport Transfers"
+            aria-describedby="brand-Eureka-Airport-Transfers"
+            width="200"
+          />
+          <h2 id="brand-luxshuttles" class="subtitle">
+            Select the best <span class="color_primary">Transfer Service</span> for you
+          </h2>
+        </div>
+        <div id="transport-items" class="card_services"></div>
+      </section>
+    </div>
+
+    <script type="module" src="./scripts/check-captcha.script.js"></script>
+  </body>
+</html>
