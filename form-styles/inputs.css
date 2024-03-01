@@ -340,11 +340,15 @@ input:-webkit-autofill {
 /* sm */
 @media (min-width: 586px) {
   .flex_responsive_big[data-type="submit"] {
-    gap: 2rem;
+    gap: 4rem;
+    justify-content: center !important;
   }
   .flex_responsive_big[data-type="submit"] .flex_end[data-btn="submit"] {
     justify-content: flex-end !important;
     align-items: flex-end !important;
+  }
+  .flex_responsive_big button {
+    margin: 0 !important;
   }
 }
 /* sm */
@@ -384,6 +388,7 @@ input:-webkit-autofill {
 
   .container_inputs[data-type="submit"] {
     justify-content: center;
+    gap: 4rem !important;
   }
   .container_form_field {
     max-width: 470px;
@@ -405,11 +410,10 @@ input:-webkit-autofill {
 @media (min-width: 1188px) {
   .flex_responsive_big[data-type="submit"] {
     flex-wrap: nowrap;
-    gap: auto;
   }
   .container_inputs[data-type="flight"] {
     flex-wrap: wrap;
-    column-gap: 1rem;
+    column-gap: 2rem;
     justify-content: space-between;
   }
 }

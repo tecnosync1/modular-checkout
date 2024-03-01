@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         msgElement.style.textTransform = "uppercase";
         msgElement.textContent = "Pay cash";
         modal({
-          title: "Payment successfully!",
+          title: "Booking confirmation!",
           message: "your reservation was successful.",
           variant: "success",
           done: function () {
